@@ -40,7 +40,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     @IBAction func settingsClicked(_ sender: UIBarButtonItem) {
-        let alertController = UIAlertController(title: "o shit waddup", message: "its dat boi!", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "o shit waddup", message: "its dat settings alert!", preferredStyle: .alert)
         
         let OKAction = UIAlertAction(title: "OK", style: .default) { action in
             // ...
