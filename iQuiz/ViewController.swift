@@ -12,6 +12,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet var tableView: UITableView!
     fileprivate var data: [Quiz] = []
     fileprivate let manager = QuizDataSource()
+    var selectedIndex: Int = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +26,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "quizsegue" {
+            let qvc = segue.destination as! QuestionViewController
+            qvc.quiz = self.data[selectedIndex]
+            qvc.questionIndex = 0
+        }
+    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedIndex = indexPath.row
+        NSLog("Selected row: " + String(self.selectedIndex))
+        performSegue(withIdentifier: "quizsegue", sender: self)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

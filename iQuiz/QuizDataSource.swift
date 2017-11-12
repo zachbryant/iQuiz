@@ -20,6 +20,6 @@ class QuizDataSource {
     }
     
     fileprivate func getQuiz(_ topic: String) -> Quiz {
-        return Quiz(subject: topic, desc: "Set in QDS.getQuiz()", icon: "atomicmodel.png", questions: [Question(), Question(), Question()])
+        return Quiz(subject: topic, desc: "Set in QDS.getQuiz()", icon: "atomicmodel.png", questions: [Question(), Question(), Question(), Question()])
     }
 }
