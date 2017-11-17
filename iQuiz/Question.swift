@@ -10,18 +10,18 @@ import Foundation
 
 struct Question {
     var text: String
-    var answerIndex: Int
+    var answer: Int
     var answers: [String]
     
     init() {
-        text = "question test"
-        answers = ["The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.", "a2 test", "a3 test", "a4 test"]
-        answerIndex = Int(arc4random_uniform(UInt32(answers.count)))
+        text = "dummy"
+        answer = 0
+        answers = ["dummy", "dummy"]
     }
     
-    init(text: String, answerIndex: Int, answers: String...) {
-        self.text = text
-        self.answerIndex = answerIndex
-        self.answers = answers
+    init(_ json: JSON) {
+        self.text = json["text"].string!
+        self.answer = Int(json["answer"].string!)! - 1
+        self.answers = json["answers"].arrayObject as! [String]
     }
 }

@@ -10,13 +10,15 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet var tableView: UITableView!
-    fileprivate var data: [Quiz] = []
-    fileprivate let manager = QuizDataSource()
+    var data: [Quiz] = []
+    var manager = QuizDataSource()
     var selectedIndex: Int = -1
+    var url: String = "https://tednewardsandbox.site44.com/questions.json"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        data = manager.getData()
+        manager = QuizDataSource(tableView, self, url: self.url)
+        data = QuizDataSource.quizzes
         self.tableView.delegate = self
         self.tableView.dataSource = self
         // Do any additional setup after loading the view, typically from a nib.
@@ -28,10 +30,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "quizsegue" {
-            let qvc = segue.destination as! QuestionViewController
-            qvc.quiz = self.data[selectedIndex]
-            qvc.questionIndex = 0
+        switch segue.identifier! {
+            case "quizsegue":
+                let qvc = segue.destination as! QuestionViewController
+                qvc.quiz = self.data[selectedIndex]
+                qvc.questionIndex = 0
+            case "settings":
+                let svc = segue.destination as! SettingsViewController
+                svc.url = manager.url
+            default: NSLog("Bad segue: " + segue.identifier!)
         }
     }
 
@@ -48,23 +55,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let quiz = data[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! QuizCell
-        cell.title.text = quiz.getSubject()!
-        cell.desc.text = quiz.getDescription()!
-        cell.icon.image = UIImage(named: quiz.getIcon()!)
+        cell.title.text = quiz.getSubject()
+        cell.desc.text = quiz.getDescription()
+        cell.icon.image = UIImage(named: quiz.getIcon())
         return cell
-    }
-    
-    @IBAction func settingsClicked(_ sender: UIBarButtonItem) {
-        let alertController = UIAlertController(title: "o shit waddup", message: "its dat settings alert!", preferredStyle: .alert)
-        
-        let OKAction = UIAlertAction(title: "OK", style: .default) { action in
-            // ...
-        }
-        alertController.addAction(OKAction)
-        
-        self.present(alertController, animated: true) {
-            // ...
-        }
     }
     
 }

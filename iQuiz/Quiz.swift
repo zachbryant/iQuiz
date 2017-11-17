@@ -10,30 +10,41 @@ import Foundation
 
 struct Quiz {
     fileprivate var questions: [Question]
-    fileprivate var subject: String? = nil
-    fileprivate var desc: String? = nil
-    fileprivate var icon: String? = nil
+    fileprivate var title: String
+    fileprivate var desc: String
+    fileprivate var icon: String
     
-    init(subject: String, desc: String, icon: String, questions: [Question]) {
-        self.subject = subject
-        self.desc = desc
-        self.icon = icon
-        self.questions = questions
+    init() {
+        title = "dummy"
+        desc = "dummy"
+        icon = "dummy"
+        questions = [Question()]
+    }
+    
+    init(_ json: JSON) {
+        let qArr = json["questions"]
+        self.questions = []
+        for i in 0..<qArr.count {
+            questions.append(Question(qArr[i]))
+        }
+        self.title = json["title"].string!
+        self.desc = json["desc"].string!
+        self.icon = "atomicmodel"
     }
     
     func getQuestions() -> [Question] {
         return questions
     }
     
-    func getSubject() -> String? {
-        return subject
+    func getSubject() -> String {
+        return title
     }
     
-    func getDescription() -> String? {
+    func getDescription() -> String {
         return desc
     }
     
-    func getIcon() -> String? {
+    func getIcon() -> String {
         return icon
     }
 }

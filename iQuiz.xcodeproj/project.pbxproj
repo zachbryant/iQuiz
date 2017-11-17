@@ -21,6 +21,9 @@
 		9D5176531FB67C6400241393 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5176521FB67C6400241393 /* QuestionViewController.swift */; };
 		9D5176551FB67C7300241393 /* AnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5176541FB67C7300241393 /* AnswerViewController.swift */; };
 		9D959F001FB7D2430003C4F0 /* FinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D959EFF1FB7D2430003C4F0 /* FinishViewController.swift */; };
+		9D959F3E1FB814BF0003C4F0 /* swiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D959F3D1FB814BF0003C4F0 /* swiftyJSON.swift */; };
+		9D959F401FB83BC90003C4F0 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D959F3F1FB83BC90003C4F0 /* Reachability.swift */; };
+		9D959F421FBF5FDB0003C4F0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D959F411FBF5FDB0003C4F0 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +64,9 @@
 		9D5176521FB67C6400241393 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		9D5176541FB67C7300241393 /* AnswerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerViewController.swift; sourceTree = "<group>"; };
 		9D959EFF1FB7D2430003C4F0 /* FinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishViewController.swift; sourceTree = "<group>"; };
+		9D959F3D1FB814BF0003C4F0 /* swiftyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swiftyJSON.swift; sourceTree = "<group>"; };
+		9D959F3F1FB83BC90003C4F0 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		9D959F411FBF5FDB0003C4F0 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +101,7 @@
 				9D51762E1FAE7CED00241393 /* iQuizTests */,
 				9D5176391FAE7CED00241393 /* iQuizUITests */,
 				9D5176181FAE7CED00241393 /* Products */,
+				9D959F1B1FB8056C0003C4F0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -124,6 +131,9 @@
 				9D5176521FB67C6400241393 /* QuestionViewController.swift */,
 				9D5176541FB67C7300241393 /* AnswerViewController.swift */,
 				9D959EFF1FB7D2430003C4F0 /* FinishViewController.swift */,
+				9D959F3D1FB814BF0003C4F0 /* swiftyJSON.swift */,
+				9D959F3F1FB83BC90003C4F0 /* Reachability.swift */,
+				9D959F411FBF5FDB0003C4F0 /* SettingsViewController.swift */,
 			);
 			path = iQuiz;
 			sourceTree = "<group>";
@@ -144,6 +154,13 @@
 				9D51763C1FAE7CED00241393 /* Info.plist */,
 			);
 			path = iQuizUITests;
+			sourceTree = "<group>";
+		};
+		9D959F1B1FB8056C0003C4F0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,12 +300,15 @@
 				9D51764D1FAE7F6F00241393 /* Question.swift in Sources */,
 				9D5176511FAEBB7600241393 /* QuizDataSource.swift in Sources */,
 				9D959F001FB7D2430003C4F0 /* FinishViewController.swift in Sources */,
+				9D959F3E1FB814BF0003C4F0 /* swiftyJSON.swift in Sources */,
 				9D5176531FB67C6400241393 /* QuestionViewController.swift in Sources */,
 				9D51761D1FAE7CED00241393 /* ViewController.swift in Sources */,
 				9D5176551FB67C7300241393 /* AnswerViewController.swift in Sources */,
+				9D959F401FB83BC90003C4F0 /* Reachability.swift in Sources */,
 				9D51764B1FAE7F0600241393 /* Quiz.swift in Sources */,
 				9D51764F1FAEA9E000241393 /* QuizCell.swift in Sources */,
 				9D51761B1FAE7CED00241393 /* AppDelegate.swift in Sources */,
+				9D959F421FBF5FDB0003C4F0 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

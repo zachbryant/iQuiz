@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class FinishViewController: UIViewController {
+    @IBOutlet weak var headLabel: UILabel!
     @IBOutlet weak var navMenuButton: UIBarButtonItem!
     @IBOutlet weak var navbar: UINavigationBar!
     @IBOutlet weak var menuButton: UIButton!
@@ -21,17 +22,22 @@ class FinishViewController: UIViewController {
         super.viewDidLoad()
         let pct: Double = Double(questionCount - wrongCount) / Double(questionCount)
         var result: String = ""
+        var headline: String = ""
         if pct == 1.0 {
-            result = "Perfect! You got all " + String(questionCount) + " questions correct."
+            headline = "Perfect!"
+            result = "You got all " + String(questionCount) + " questions correct."
         }
         else {
             if pct >= 0.80 {
-                result = "Close! You got " + String(questionCount - wrongCount) + " out of " + String(questionCount) + " questions correct."
+                headline = "Close!"
+                result = "You got " + String(questionCount - wrongCount) + " out of " + String(questionCount) + " questions correct."
             }
             else {
-                result = "Better luck next time! You only got " + String(questionCount - wrongCount) + " out of " + String(questionCount) + " questions correct."
+                headline = "Better luck next time!"
+                result = "You only got " + String(questionCount - wrongCount) + " out of " + String(questionCount) + " questions correct."
             }
         }
+        headLabel.text = headline
         scoreLabel.text = result
     }
     @IBAction func mainMenu(_ sender: UIBarButtonItem) {

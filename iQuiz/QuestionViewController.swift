@@ -13,7 +13,7 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var navbar: UINavigationBar!
     var questionIndex: Int = 0
     var questions: [Question] = []
-    var quiz: Quiz = Quiz(subject: "dummy", desc: "dummy", icon: "dummy", questions: [])
+    var quiz: Quiz = Quiz()
     @IBOutlet weak var qLabel: UILabel!
     @IBOutlet weak var submit: UIButton!
     @IBOutlet weak var a4: UILabel!
@@ -26,7 +26,7 @@ class QuestionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSLog(quiz.getSubject()!)
+        NSLog(quiz.getSubject())
         navbar.topItem?.title = quiz.getSubject()
         questions = quiz.getQuestions()
         var question = questions[questionIndex]

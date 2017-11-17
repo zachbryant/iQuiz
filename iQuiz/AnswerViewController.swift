@@ -13,7 +13,7 @@ class AnswerViewController: UIViewController {
     @IBOutlet weak var navbar: UINavigationBar!
     var questionIndex: Int = 0
     var questions: [Question] = []
-    var quiz: Quiz = Quiz(subject: "dummy", desc: "dummy", icon: "dummy", questions: [])
+    var quiz: Quiz = Quiz()
     @IBOutlet weak var qLabel: UILabel!
     @IBOutlet weak var finishButton: UIButton!
     @IBOutlet weak var a4: UILabel!
@@ -43,7 +43,7 @@ class AnswerViewController: UIViewController {
         a2.text = question.answers[1]
         a3.text = question.answers[2]
         a4.text = question.answers[3]
-        switch question.answerIndex {
+        switch question.answer {
             case 0:
                 a1.layer.backgroundColor = correctColor
                 correctLabel = a1
